@@ -16,7 +16,11 @@
     <header class="primary-header">
       <div class="container"> 
         <div class="nav-wrapper">
-          <a href="#"><img src="./src/images/logo.svg" alt="Logo/Manage"></a>
+          <a href="#">
+              <svg class="logo" width="146" height="24">
+                <use xlink:href="./src/images/logo-new.svg#logo" />
+              </svg>
+          </a>
           <button class="mobile-nav-toggle" aria-controls="primary-navigation" aria-expanded="false">
             <img class="icon-close" src="./src/images/icon-close.svg" alt="" aria-hidden="true">
             <img class="icon-hamburger" src="./src/images/icon-hamburger.svg" alt="" aria-hidden="true">
@@ -123,23 +127,61 @@
       </section>
     </main>
 
-    <footer class="bg-neutral-900 text-nuetral-100 padding-block-700">
+    <footer class="primary-footer | bg-neutral-900 text-nuetral-100 padding-block-700">
       <div class="container">
-        <div class="even-columns">
-          <div>
-            <a href="#"><img src="./src/images/logo.svg" alt="Logo/Manage"></a>
-            <ul role="list" aria-label="social links">
-              <li><a aria-label="facebook" href="#"> </a></li>
-              <li><a aria-label="youtube" href="#"> </a></li>
-              <li><a aria-label="twitter" href="#"> </a></li>
-              <li><a aria-label="pinterest" href="#"> </a></li>
-              <li><a aria-label="instagram" href="#"> </a></li>
+        <div class="primary-footer-wrapper">
+          <div class="primary-footer-logo-social">
+            <a href="#" aria-label="home">
+              <svg class="logo" width="146" height="24">
+                <use xlink:href="./src/images/logo-new.svg#logo" />
+              </svg>
+            </a>
+            <ul class="social-list" role="list" aria-label="social links">
+              <li>
+                <a aria-label="facebook" href="#"> 
+                  <svg class="social-icon">
+                    <use xlink:href="./src/images/social-icons.svg#icon-facebook"></use>
+                  </svg>
+                </a>
+              </li>
+
+              <li>
+                <a aria-label="youtube" href="#"> 
+                  <svg class="social-icon">
+                    <use xlink:href="./src/images/social-icons.svg#icon-youtube"></use>
+                  </svg>
+                </a>
+              </li>
+
+              <li>
+                <a aria-label="twitter" href="#"> 
+                  <svg class="social-icon">
+                    <use xlink:href="./src/images/social-icons.svg#icon-twitter"></use>
+                  </svg>
+                </a>
+              </li>
+
+              <li>
+                <a aria-label="pinterest" href="#"> 
+                  <svg class="social-icon">
+                    <use xlink:href="./src/images/social-icons.svg#icon-pinterest"></use>
+                  </svg>
+                </a>
+              </li>
+
+              <li>
+                <a aria-label="instagram" href="#"> 
+                  <svg class="social-icon">
+                    <use xlink:href="./src/images/social-icons.svg#icon-instagram"></use>
+                  </svg>
+                </a>
+              </li>
             </ul>
           </div>
 
-          <div>
-            <nav class="flow" data-spacing="tight" aria-label="Footer" class="footer-nav">
-              <ul role="list">
+          <div class="primary-footer-nav">
+            <nav data-spacing="tight" aria-label="Footer" class="footer-nav">
+            <ul class="flow" role="list">
                 <li><a href="#"> Home</a></li>
                 <li><a href="#"> Pricing</a></li>
                 <li><a href="#"> Products</a></li>
@@ -151,12 +193,12 @@
             </nav>
           </div>
 
-          <div>
+          <div class="primary-footer-form">
             <form action="">
               <input type="email">
-              <button class="button">Go</button>
-              <p class="copyright">Copyright 2020. All Rights Reserved.</p>
+              <button class="button" data-shadow="none">Go</button>
             </form>
+            <p class="copyright">Copyright 2020. All Rights Reserved.</p>
           </div>
         </div>
       </div>

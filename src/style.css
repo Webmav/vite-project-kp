@@ -132,7 +132,8 @@ body {
     color: var(--clr-primary-400);
 }
 
-p:not([class]) {
+p:not([class]),
+p.copyright {
     opacity: 0.7;
     max-width: 32ch;
 }
@@ -143,7 +144,6 @@ p[data-width="wide"] {
 
 a {
     text-decoration: none;
-    color: var(--clr-primary-400);
 }
 
 /* button */
@@ -161,6 +161,10 @@ a {
     background-color: var(--clr-accent-400);
     text-decoration: none;
     box-shadow: 0 1.125em 1em -1em var(--clr-accent-500);
+}
+
+.button[data-shadow="none"] {
+    box-shadow: none;
 }
 
 .button[data-type="inverted"] {
@@ -183,6 +187,9 @@ a {
 
 .primary-header {
     padding-top: var(--size-700);
+}
+.primary-header a {
+    color: var(--clr-primary-400);
 }
 
 .nav-wrapper {
@@ -270,13 +277,11 @@ a {
     isolation: isolate;
     text-align: center;
 }
-
 @media (min-width: 50em) {
     .cta {
         text-align: left;
     }
 }
-
 .cta::before {
     content: '';
     position: absolute;
@@ -291,13 +296,122 @@ a {
     opacity: .1;
 }
 
+/* footer */
 
+.primary-footer {
+    --logo-color: var(--clr-neutral-100);
+} 
 
+.primary-footer-wrapper {
+    display: grid;
+    gap: var(--size-600);
+    grid-template-areas: 
+    "form"
+    "nav"
+    "logo-social"
+    ;
+}
 
+.primary-footer-logo-social {
+    grid-area: logo-social;
 
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    gap: var(--size-700);
+}
 
+.primary-footer-nav {
+    grid-area: nav;
+}
 
+.primary-footer-form {
+    grid-area: form;
 
+    display: grid;
+    align-content: space-between;
+}
+
+.primary-footer form {
+    display: flex;
+    gap: var(--size-200);
+}
+
+.primary-footer-form input:where([type="text"], [type="email"], [type="password"],) {
+    border-radius: 100vw;
+    border: 0;
+    padding: var(--size-200) var(--size-400);
+}
+
+@media (max-width: 50em) {
+    .primary-footer-wrapper > * {
+        margin-inline: auto;
+    }
+}
+
+@media (min-width: 50em) {
+    .primary-footer-wrapper {
+        grid-template-areas: 
+        "logo-social nav form"
+        ;
+    }
+
+    .primary-footer-logo-social {
+        align-items: start;
+        justify-content: space-between;
+        /* flex-direction: column; */
+    }
+}
+
+/* footer navigation */
+
+.footer-nav {
+    columns: 2;
+    gap: clamp(var(--size-200), 30vw, var(--size-900));
+}
+.footer-nav a {
+    color: var(--clr-neutral-100); 
+}
+.footer-nav a:where(:hover, :focus) {
+    color: var(--clr-accent-400); 
+}
+
+/* social list */
+
+.social-list {
+    display: flex;
+    gap: var(--size-600);
+}
+
+.social-icon {
+    width: var(--size-600);
+    aspect-ratio: 1;
+    fill: var(--clr-neutral-100);
+}
+
+.social-list a:is(:hover, :focus) .social-icon {
+    fill: var(--clr-accent-400);
+} 
+
+@media (min-width: 50em) {
+    .social-list {
+        gap: var(--size-400);
+    }
+
+    .social-icon {
+        width: var(--size-500);
+    }
+}
+/* 1 */
+/* 2 */
+/* 3 */
+/* 4 */
+/* 5 */
+/* 6 */
+/* 7 */
+/* 8 */
+/* 9 */
+/* 10 */
 
 /* Utility classes */
 
