@@ -44,7 +44,7 @@
     --size-900: 5rem;
 }
 
-@media (min-width: 50em){
+@media (min-width: 47em){
     :root {
         --fs-body: var(--fs-500);
         --fs-primary-heading: var(--fs-900);
@@ -84,7 +84,8 @@ html:focus-within {
 
 html,
 body {
-    height: 100%;
+    min-height: 100%;
+    overflow-x: hidden;
 }
 
 /* Set core body defaults */
@@ -218,11 +219,18 @@ a {
     color: var(--clr-accent-400);
 }
 
-@media (max-width: 50em) {
+@media (max-width: 47em) {
+
+    .primary-header[data-overlay] {
+        position: relative;
+        z-index: 999;
+    }
+
     .primary-navigation {
         display: none;
 
         position: fixed;
+        z-index: 999;
         padding: var(--size-700);
         inset: 7rem var(--size-400) auto;
         max-width: 25rem;
@@ -260,10 +268,17 @@ a {
         background: transparent;
         border: 0;
         padding: .5em;
+        width: 1.65em;
+        aspect-ratio: 1;
+
+        background-image: url('/src/images/icon-hamburger.svg');
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
     }
     
-    .mobile-nav-toggle .icon-close {
-        display: none;
+    .mobile-nav-toggle[aria-expanded="true"] {
+        background-image: url('/src/images/icon-close.svg');
     }
 }
 
@@ -278,7 +293,7 @@ a {
     isolation: isolate;
     text-align: center;
 }
-@media (min-width: 50em) {
+@media (min-width: 47em) {
     .cta {
         text-align: left;
     }
@@ -289,8 +304,8 @@ a {
     inset: 0;
     z-index: -1;
     background-image: 
-    url('./images/bg-tablet-pattern.svg'),
-    url('./images/bg-tablet-pattern.svg')
+        url('./images/bg-tablet-pattern.svg'),
+        url('./images/bg-tablet-pattern.svg')
     ;
     background-position: -15rem -5rem, 80rem -42rem;
     background-repeat: no-repeat;
@@ -344,13 +359,13 @@ a {
     padding: var(--size-200) var(--size-400);
 }
 
-@media (max-width: 50em) {
+@media (max-width: 47em) {
     .primary-footer-wrapper > * {
         margin-inline: auto;
     }
 }
 
-@media (min-width: 50em) {
+@media (min-width: 47em) {
     .primary-footer-wrapper {
         grid-template-areas: 
         "logo-social nav form"
@@ -394,7 +409,7 @@ a {
     fill: var(--clr-accent-400);
 } 
 
-@media (min-width: 50em) {
+@media (min-width: 47em) {
     .social-list {
         gap: var(--size-400);
     }
@@ -503,13 +518,13 @@ a {
     .a11y-slider-container {
         margin-inline: 0;
     }
-    
+
     .slider > * {
         width: 50%;
     }
 }
 
-@media (min-width: 50em) {
+@media (min-width: 47em) {
     .slider > * {
         width: 35%;
     }
@@ -555,6 +570,63 @@ a {
 
 .a11y-slider-dots li button.active {
     background: var(--clr-accent-400);
+}
+
+/* hero */
+
+@media (max-width: 47em) {
+    .hero__image {
+    /*     position: relative; */
+        order: -1;
+    }
+}
+
+.hero__image::before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    width: 85%;
+    max-height: 80vh;
+    max-height: 80dvh;
+    aspect-ratio: 1 / 1.2;
+    top: 0;
+    right: 0;
+    background-image: url('./images/bg-tablet-pattern.svg');
+    background-repeat: no-repeat;
+    background-position: bottom left;
+}
+
+@media (min-width: 47em) {
+    .hero__image::before {
+        width: 45%;
+    }
+}
+
+/* sales points */
+
+.sales-points__blob {
+    position: relative;
+}
+
+.sales-points__blob::before {
+    position: absolute;
+    content: url("/src/images/bg-tablet-pattern.svg");
+    zoom: 70%;
+    z-index: -1;
+    bottom: 87%;
+    right: 50%;
+    width: 100px;
+    aspect-ratio: 1 / 1.2;
+}
+
+@media (min-width: 47em) {
+    .sales-points__blob::before {
+        zoom: 70%;
+        z-index: -1;
+        top: 40%;
+        left: -70%;
+        width: 100px;
+    }
 }
 
 /* 1 */
@@ -657,11 +729,15 @@ a {
     margin-block-end: var(--size-700);
 }
 
+.mx-auto {
+    margin-inline: auto;
+}
+
 .display-sm-none {
     display: none;
 }
 
-@media (min-width: 50em) {
+@media (min-width: 47em) {
     .display-md-inline-flex {
         display: inline-flex;
     }
@@ -683,7 +759,7 @@ a {
     justify-self: end;
 }
 
-@media (min-width: 50em) {
+@media (min-width: 47em) {
     .justify-self-end-md {
         justify-self: end;
     }
@@ -702,7 +778,7 @@ a {
     margin-inline: auto;
 }
 
-@media (max-width: 50em) {
+@media (max-width: 47em) {
     .text-center-sm-only {
         text-align: center;
     }
@@ -721,7 +797,7 @@ div {
 
 
 
-@media (min-width: 50em) {
+@media (min-width: 47em) {
     .even-columns {
         grid-auto-flow: column;
         grid-auto-columns: 1fr;
